@@ -1,0 +1,67 @@
+<div class="panel shadow mt-3" >
+    <div class="header">
+      <h2 class="title"><i class="fas fa-volleyball-ball"></i> EDITAR COMPETIDOR-EQUIPO</h2>
+    </div>
+    <div class="inside">
+      <form (submit)="onSubmit()"
+        [formGroup]="newCompetidorForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>
+              Estudiante
+            </label>
+            <div  *ngIf="matriculaObject.selected">
+            <input type="text"  class="form-control"  
+              value="{{ matriculaObject.text }}" readonly 
+              *ngIf="matriculaObject.selected">
+              
+            <button type="button" 
+              (click)="unselectMatricula()"
+              class="btn btn-primary">Cambiar</button>
+            </div>
+            <div class="list-group" *ngIf="!matriculaObject.selected">
+              <div class="list-group-item" 
+                *ngFor="let matricula of matriculas">{{ matricula.persona.nombre }}
+                <button class="btn btn-primary" 
+                  (click)="selectMatricula(matricula)"  
+                  type="button">Seleccionar</button>
+              </div>
+            </div>            
+          </div>
+  
+          <div class="form-group col-md-4">
+            <label>
+              Equipo
+            </label>
+            <div  *ngIf="equipoObject.selected">
+            <input type="text"  class="form-control" 
+              value="{{ equipoObject.text }}" readonly 
+              *ngIf="equipoObject.selected" >
+              
+            <button type="button" 
+              (click)="unselectEquipo()"
+              class="btn btn-primary">Cambiar</button>
+            </div>
+            <div class="list-group" *ngIf="!equipoObject.selected">
+              <div class="list-group-item" 
+                *ngFor="let equipo of equipos">{{ equipo.nombre }}
+                <button class="btn btn-primary" 
+                  (click)="selectEquipo(equipo)"
+                  type="button">Seleccionar</button>
+              </div>
+            </div>            
+          </div>
+  
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">
+          Actualizar
+        </button>
+        <button type="button" class="btn btn-warning mr-2" [routerLink]="['/admin/competidorequipo']">
+          Cancelar
+        </button>
+        <button (click)="delete()" class="btn btn-danger" type="button">Eliminar</button>
+      </form>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,13 @@
+<div class="panel shadow mt-3" >
+  <div class="header">
+    <h2 class="title"><i class="fas fa-volleyball-ball"></i> OLIMPIADA: {{ olim.nombre }}</h2>
+  </div>
+  <div class="inside">
+    <div class="list-group">
+      <div class="list-group-item">
+        <strong>ID: </strong> {{ olim.id }}
+      </div>
+    </div>
+    <a class="btn btn-success mt-2" [routerLink]="['/admin/olimpiada', olim.id, 'edit']">Editar</a>
+  </div>
+</div>

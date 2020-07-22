@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { EquipoService } from '../../services/equipo/equipo.service';
+import { ActivatedRoute } from "@angular/router";
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-equipo-show',
+  templateUrl: './equipo.show.component.html',
+  styleUrls: ['./equipo.show.component.css']
+})
+export class EquipoShowComponent {
+  equi:any; 
+  constructor(private equipoService : EquipoService, 
+    private activatedRoute : ActivatedRoute) { 
+      var id : number = parseInt(this.activatedRoute.
+        snapshot.paramMap.get("id"));
+
+      this.equi = {
+        'nombre': 'Desconocido',
+        'disciplina_id': 0,
+        'descripcion': '',
+        'logo': '',
+        'id': 0
+
+        
+      }
+      
+      
+      this.equipoService.show(id)
+        .subscribe((res) => {
+          
+          this.equi.id = res["object"]["id"];
+          this.equi.nombre = res["object"]["nombre"];
+          this.equi.disciplina_id = res["object"]["disciplina_id"];
+          this.equi.descripcion = res["object"]["descripcion"];
+
+        }, (err)=> {
+
+      });
+
+      
+    }
+   
+}

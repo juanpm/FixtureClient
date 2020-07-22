@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div *ngIf="!this.generals.user.authenticated" class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+            <app-usuario-login></app-usuario-login>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+    <div *ngIf="this.generals.user.authenticated"  class="row">
+        <div class="col1">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col2">
+            <app-header></app-header>
+            <div class="container-fluid">
+                <div class="panel shadow">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
