@@ -42,11 +42,11 @@ export class EquipoEditComponent implements OnInit {
       });      
       this.loadDisciplina();
 
-      // this.id = parseInt(this.activatedRoute.
-      //   snapshot.paramMap.get("id"));
+       this.id = parseInt(this.activatedRoute.
+         snapshot.paramMap.get("id"));
 
-      // this.disciplinaService.show(this.id)
-      //   .subscribe((res)=>{
+       this.equipoService.show(this.id)
+         .subscribe((res)=>{
 
       //     //1 Sobre escribo
       //   this.formEdit.setValue({
@@ -55,18 +55,18 @@ export class EquipoEditComponent implements OnInit {
       //     'participantes': res["object"]["participantes"],
       //   });
 
-      // }, (err)=>{
+       }, (err)=>{
         
       //   //2
 
-      // });
+       });
     }
 
     ngOnInit() {
       this.activatedRoute.data.subscribe((data) => {
         //console.log(">>", data);
-        this.equipoObject["id"] = data.equipoResolver["id"];
-        this.equipoObject["disciplina_id"] = data.equipoResolver["disciplina_id"];
+        this.equipoObject["id"] = data.equipoResolver["equipo"]["id"];
+        this.equipoObject["disciplina_id"] = data.equipoResolver["disciplina"]["id"];
         //console.log(">>>", this.matriculaObject);
         this.newEquipoForm.patchValue({
           'nombre' : data.equipoResolver.nombre,
@@ -138,7 +138,8 @@ onSubmit() {
       })
       .subscribe((res)=>{
         if ( res['status'] ) {
-          
+          alert("Datos Actualizados");
+          this.router.navigate(["admin/equipo"]);
         }
       }, (err) => {
 

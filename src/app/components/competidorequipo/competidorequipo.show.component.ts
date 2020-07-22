@@ -24,9 +24,11 @@ export class CompetidorequipoShowComponent {
       this.competidorequipoService.show(id)
         .subscribe((res) => {
           
-          this.compe.id = res["object"]["id"];
-          this.compe.matricula_id = res["object"]["matricula_id"];
-          this.compe.equipo_id = res["object"]["equipo_id"];
+          this.compe.id = res["object"]["competidorequipo"]["id"];
+          this.compe.matricula_id = res["object"]["matricula"]["id"];
+          this.compe.matricula_persona_id = res["object"]["matricula"]["persona_id"];
+          this.compe.equipo_id = res["object"]["equipo"]["id"];
+          this.compe.equipo_nombre = res["object"]["equipo"]["nombre"];
 
         }, (err)=> {
 

@@ -3,7 +3,7 @@
     <h2 class="title"><i class="fas fa-volleyball-ball"></i> REGISTRO PERSONA</h2>
   </div>
   <div class="inside">
-
+    <div class="btn btn-secondary" *ngIf="!crud_operation.is_visible" (click)="new()">Mostrar</div>
     <form (submit)="crearPersona()"
       [formGroup]="newPersonaForm"
       *ngIf="crud_operation.is_visible">
@@ -119,7 +119,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="btn btn-secondary" (click)="new()">Mostrar</div>
 
   </div>
 </div>

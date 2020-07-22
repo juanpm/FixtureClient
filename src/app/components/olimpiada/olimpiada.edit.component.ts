@@ -80,7 +80,7 @@ export class OlimpiadaEditComponent {
         }, 1000);
 
         alert("Felicidades");
-        this.router.navigate(["/olimpíada"]);
+        this.router.navigate(["/admin/olimpíada"]);
       }, (err)=>{
         this.status = "error";
         setTimeout(function(){

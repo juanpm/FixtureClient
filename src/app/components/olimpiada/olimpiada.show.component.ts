@@ -24,6 +24,10 @@ export class OlimpiadaShowComponent {
         .subscribe((res) => {
           
           this.olim.nombre = res["object"]["nombre"];
+          this.olim.descripcion = res["object"]["descripcion"];
+          this.olim.fecha_inicio = res["object"]["fecha_inicio"];
+          this.olim.fecha_fin_inscripcion = res["object"]["fecha_fin_inscripcion"];
+          this.olim.fecha_fin = res["object"]["fecha_inicio"];
           this.olim.id = res["object"]["id"];
 
         }, (err)=> {

@@ -162,8 +162,6 @@ load() {
         this.newDesafioForm.value.retador_id,
         this.newDesafioForm.value.invitado_puntaje,
         this.newDesafioForm.value.retador_puntaje,
-        this.newDesafioForm.value.ganador,
-        this.newDesafioForm.value.parent_id,
         this.newDesafioForm.value.fecha,
         this.newDesafioForm.value.fase )
       

@@ -5,9 +5,28 @@
   <div class="inside">
     <div class="list-group">
       <div class="list-group-item">
-        <strong>ID: </strong> {{ olim.id }}
+        <div>
+          <strong>Descripcion: </strong> {{ olim.descripcion }}
+        </div>
+        <div>
+          <strong>Fecha de Inicio: </strong> {{ olim.fecha_inicio }}
+        </div>
+        <div>
+          <strong>Fecha de fin de inscripcion: </strong> {{ olim.fecha_fin_inscripcion }}
+        </div>
+        <div>
+          <strong>Fecha de fin: </strong> {{ olim.fecha_fin }}
+        </div>
+        
       </div>
     </div>
-    <a class="btn btn-success mt-2" [routerLink]="['/admin/olimpiada', olim.id, 'edit']">Editar</a>
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <a class="btn btn-success mt-2 mr-5" [routerLink]="['/admin/olimpiada', olim.id, 'edit']">Editar</a>
+      </div>
+      <div class="form-group col-md-2">
+        <button class="btn btn-info mt-2" [routerLink]="['/admin/olimpiada']">Regresar</button>
+      </div>
+    </div> 
   </div>
 </div>

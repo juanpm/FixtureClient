@@ -6,9 +6,16 @@
       <div class="list-group">
         <div class="list-group-item">
           <h5>Participantes: </h5> {{ disci.participantes }}
-          <h5>Olimpiada: </h5> {{ disci.olimpiada_id }}
+          <h5>Olimpiada: </h5> {{ disci.olimpiada_nombre }}
         </div>
       </div>
-      <a class="btn btn-success mt-2" [routerLink]="['/admin/disciplina', disci.id, 'edit']">Editar</a>
+      <div class="form-row">
+      <div class="form-group col-md-10">
+        <a class="btn btn-success mt-2 mr-5" [routerLink]="['/admin/disciplina', disci.id, 'edit']">Editar</a>
+      </div>
+      <div class="form-group col-md-2">
+        <button class="btn btn-info mt-2" [routerLink]="['/admin/disciplina']">Regresar</button>
+      </div>
+    </div> 
     </div>
   </div>

@@ -29,10 +29,12 @@ export class EquipoShowComponent {
       this.equipoService.show(id)
         .subscribe((res) => {
           
-          this.equi.id = res["object"]["id"];
+          this.equi.id = res["object"]["equipo"]["id"];
           this.equi.nombre = res["object"]["nombre"];
-          this.equi.disciplina_id = res["object"]["disciplina_id"];
+          this.equi.disciplina_id = res["object"]["disciplina"]["id"];
+          this.equi.disciplina_nombre = res["object"]["disciplina"]["nombre"];
           this.equi.descripcion = res["object"]["descripcion"];
+          this.equi.image = res["object"]["image"];
 
         }, (err)=> {
 

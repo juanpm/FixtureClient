@@ -52,10 +52,10 @@
       <button type="submit" class="btn btn-primary mr-2">
         Actualizar
       </button>
-      <button class="btn btn-warning mr-2" [routerLink]="['/admin/olimpiada']">
+      <button class="btn btn-warning mr-2" [routerLink]="['/admin/olimpiada', this.id]">
         Cancelar
       </button>
-      <button (click)="delete()" class="btn btn-danger" type="button" [routerLink]="['/admin/olimpiada']">Eliminar</button>
+      <button (click)="delete()" class="btn btn-danger" type="button">Eliminar</button>
     </form>      
   </div>
 </div>

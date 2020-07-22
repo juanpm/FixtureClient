@@ -43,9 +43,8 @@
           </div>
           <div class="list-group" *ngIf="!seccionObject.selected">
             <div class="list-group-item" 
-              (click)="selectSeccion(seccion)"
               *ngFor="let seccion of secciones">
-              <button class="btn btn-success" type="button">Seleccionar</button>
+              <button class="btn btn-success" (click)="selectSeccion(seccion)" type="button">Seleccionar</button>
               {{ seccion.nombre }}    
             </div>
           </div>            

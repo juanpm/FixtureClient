@@ -3,7 +3,7 @@
       <h2 class="title"><i class="fas fa-volleyball-ball"></i> REGISTRAR COMPETIDOR-EQUIPO</h2>
     </div>
     <div class="inside">
-  
+      <div class="btn btn-secondary" *ngIf="!crud_operation.is_visible" (click)="new()">Mostrar</div>
       <form (submit)="crearMatricula()"
         [formGroup]="newCompetidorForm"
         *ngIf="crud_operation.is_visible">
@@ -46,9 +46,8 @@
             </div>
             <div class="list-group" *ngIf="!equipoObject.selected">
               <div class="list-group-item" 
-                (click)="selectEquipo(equipo)"
                 *ngFor="let equipo of equipos">
-                <button class="btn btn-success" type="button">Seleccionar</button>
+                <button class="btn btn-success" (click)="selectEquipo(equipo)" type="button">Seleccionar</button>
                 {{ equipo.nombre }}
                 
               </div>
@@ -89,7 +88,6 @@
           </tr>
         </tbody>
       </table>
-      <div class="btn btn-secondary" (click)="new()">Mostrar</div>
   
     </div>
   </div>

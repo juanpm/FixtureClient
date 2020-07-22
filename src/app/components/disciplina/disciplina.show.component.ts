@@ -18,7 +18,7 @@ export class DisciplinaShowComponent {
       this.disci = {
         'nombre': 'Desconocido',
         'participantes': 0,
-        'olimpiada:id': 0,
+        'olimpiada_id': 0,
         'id': 0
 
         
@@ -28,10 +28,11 @@ export class DisciplinaShowComponent {
       this.disciplinaService.show(id)
         .subscribe((res) => {
           
-          this.disci.id = res["object"]["id"];
-          this.disci.nombre = res["object"]["nombre"];
-          this.disci.participantes = res["object"]["participantes"];
-          this.disci.olimpiada_id = res["object"]["olimpiada_id"];
+          this.disci.id = res["object"]["disciplina"]["id"];
+          this.disci.nombre = res["object"]["disciplina"]["nombre"];
+          this.disci.participantes = res["object"]["disciplina"]["participantes"];
+          this.disci.olimpiada_id = res["object"]["olimpiada"]["id"];
+          this.disci.olimpiada_nombre = res["object"]["olimpiada"]["nombre"];
 
         }, (err)=> {
 

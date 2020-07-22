@@ -19,3 +19,8 @@
 .inside {
     padding: 16px;
 }
+
+img {
+    width: 600px;
+    height: 300px;
+}

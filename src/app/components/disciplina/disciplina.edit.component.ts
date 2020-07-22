@@ -40,31 +40,31 @@ export class DisciplinaEditComponent implements OnInit {
       });      
       this.loadOlimpiada();
 
-      // this.id = parseInt(this.activatedRoute.
-      //   snapshot.paramMap.get("id"));
+       this.id = parseInt(this.activatedRoute.
+         snapshot.paramMap.get("id"));
 
-      // this.disciplinaService.show(this.id)
-      //   .subscribe((res)=>{
+       this.disciplinaService.show(this.id)
+         .subscribe((res)=>{
 
       //     //1 Sobre escribo
       //   this.formEdit.setValue({
       //     'id': res["object"]["id"],
       //     'nombre': res["object"]["nombre"],
       //     'participantes': res["object"]["participantes"],
-      //   });
+      //  });
 
-      // }, (err)=>{
+       }, (err)=>{
         
       //   //2
 
-      // });
+       });
     }
 
     ngOnInit() {
       this.activatedRoute.data.subscribe((data) => {
         //console.log(">>", data);
-        this.disciplinaObject["id"] = data.disciplinaResolver["id"];
-        this.disciplinaObject["olimpiada_id"] = data.disciplinaResolver["olimpiada_id"];
+        this.disciplinaObject["id"] = data.disciplinaResolver["disciplina"]["id"];
+        this.disciplinaObject["olimpiada_id"] = data.disciplinaResolver["olimpiada"]["id"];
         //console.log(">>>", this.matriculaObject);
         this.newDisciplinaForm.patchValue({
           'nombre' : data.disciplinaResolver.nombre,
@@ -134,7 +134,8 @@ onSubmit() {
       })
       .subscribe((res)=>{
         if ( res['status'] ) {
-          
+          alert("Datos Actualizados");
+          this.router.navigate(["admin/disciplina"])
         }
       }, (err) => {
 

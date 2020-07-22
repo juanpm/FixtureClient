@@ -4,15 +4,12 @@
     </div>
     
     <div class="inside">
+      <div class="btn btn-secondary mb-3" *ngIf="!crud_operation.is_visible" (click)="new()">Mostrar</div>
         <form (submit)="crearDesafio()"
         [formGroup]="newDesafioForm" *ngIf="crud_operation.is_visible">
           <div class="form-group">
             <label for="inputDesafio" class=" col-form-label">Fase</label>
             <input type="text" class="form-control " id="inputDesafio" formControlName="fase">
-          </div>
-          <div class="form-group">
-            <label for="inputCarrera" class="col-form-label">Numero de encuentro</label>
-            <input type="number" class="form-control " id="inputCarrera" value="1" formControlName="parent_id">
           </div>
           <div class="form-group">
               <label>
@@ -94,11 +91,6 @@
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="inputDesafio" class="col-form-label">Ganador</label>
-              <input type="text" class="form-control " id="inputDesafio" formControlName="ganador">
-            </div>   
-            
             <label for="inputDesafio" class="col-form-label">Fecha y Hora</label>
             <input type="datetime-local" class="form-control " id="inputDesafio" formControlName="fecha">
             
@@ -115,7 +107,6 @@
               <th scope="col">Retador</th>
               <th scope="col">Puntaje Invitado</th>
               <th scope="col">Puntaje Retador</th>
-              <th scope="col">Ganador</th>
               <th scope="col">Opciones</th>
             </tr>
           </thead>
@@ -127,14 +118,13 @@
               <td>{{des.retador.nombre}}</td>
               <td>{{des.invitado_puntaje}}</td>
               <td>{{des.retador_puntaje}}</td>
-              <td>{{des.ganador}}</td>
               <td>
                 <a [routerLink]="['/admin/desafio', des.id]" class="btn btn-info">Ver</a>
               </td> 
             </tr>
           </tbody>
         </table>
-         <div class="btn btn-secondary" (click)="new()">Mostrar</div>
+
     </div>
 </div> 
    

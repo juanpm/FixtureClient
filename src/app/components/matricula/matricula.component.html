@@ -3,7 +3,7 @@
       <h2 class="title"><i class="fas fa-volleyball-ball"></i> REGISTRAR MATRICULA</h2>
     </div>
     <div class="inside">
-  
+      <div class="btn btn-secondary" *ngIf="!crud_operation.is_visible" (click)="new()">Mostrar</div>
       <form (submit)="crearMatricula()"
         [formGroup]="newMatriculaForm"
         *ngIf="crud_operation.is_visible">
@@ -44,9 +44,8 @@
             </div>
             <div class="list-group" *ngIf="!seccionObject.selected">
               <div class="list-group-item" 
-                (click)="selectSeccion(seccion)"
                 *ngFor="let seccion of secciones">
-                <button class="btn btn-success" type="button">Seleccionar</button>
+                <button class="btn btn-success" (click)="selectSeccion(seccion)" type="button">Seleccionar</button>
                 {{ seccion.nombre }}    
               </div>
             </div>            
@@ -67,9 +66,8 @@
             </div>
             <div class="list-group" *ngIf="!personaObject.selected">
               <div class="list-group-item" 
-                (click)="selectPersona(persona)"
                 *ngFor="let persona of personas">
-                <button class="btn btn-success" type="button">Seleccionar</button>
+                <button class="btn btn-success" (click)="selectPersona(persona)" type="button">Seleccionar</button>
                 {{ persona.nombrecompleto }}
               </div>
             </div>            
@@ -113,7 +111,6 @@
           </tr>
         </tbody>
       </table>
-      <div class="btn btn-secondary" (click)="new()">Mostrar</div>
   
     </div>
   </div>

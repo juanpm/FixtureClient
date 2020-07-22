@@ -26,7 +26,8 @@ export class MatriculaShowComponent {
         .subscribe((res) => {
           
           this.matri.id = res["object"]["matricula"]["id"];
-          this.matri.persona_id = res["object"]["matricula"]["persona_id"];
+          this.matri.persona_id = res["object"]["persona"]["id"];
+          this.matri.persona_nombre = res["object"]["persona"]["nombrecompleto"];
           this.matri.carrera_id = res["object"]["carrera"]["id"];
           this.matri.carrera_nombre = res["object"]["carrera"]["nombre"];
           this.matri.seccionperiodo_id = res["object"]["seccion"]["id"];

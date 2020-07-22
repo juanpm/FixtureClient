@@ -22,19 +22,20 @@
                 
               <button type="button" 
                 (click)="unselectOlimpiada()"
-                class="btn btn-primary">Cambiar</button>
+                class="btn btn-info">Cambiar</button>
               </div>
               <div class="list-group" *ngIf="!olimpiadaObject.selected">
                 <div class="list-group-item" 
-                  *ngFor="let olimpiada of olimpiadas">{{ olimpiada.nombre }}
-                  <button class="btn btn-primary" type="button" (click)="selectOlimpiada(olimpiada)"
+                  *ngFor="let olimpiada of olimpiadas">
+                  <button class="btn btn-success" type="button" (click)="selectOlimpiada(olimpiada)"
                   >Seleccionar</button>
+                  {{ olimpiada.nombre }}  
                 </div>
               </div>            
             </div>
           </div>
           <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-          <button class="btn btn-warning mr-2" [routerLink]="['/admin/disciplina']">Cancelar</button>   
+          <button class="btn btn-warning mr-2" [routerLink]="['/admin/disciplina', this.id]">Cancelar</button>   
           <button (click)="delete()" class="btn btn-danger" type="button">Eliminar</button>
         </form>      
     </div>

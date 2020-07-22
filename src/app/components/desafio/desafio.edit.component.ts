@@ -57,8 +57,6 @@ export class DesafioEditComponent implements OnInit {
         'retador_id' : '',
         'invitado_puntaje' : '',
         'retador_puntaje' : '',
-        'ganador' : '',
-        'parent_id': '',
         'fecha': '',
         'fase': ''
       });      
@@ -88,18 +86,16 @@ export class DesafioEditComponent implements OnInit {
     ngOnInit() {
       this.activatedRoute.data.subscribe((data) => {
         //console.log(">>", data);
-        this.desafioObject["id"] = data.desafioResolver["id"];
-        this.desafioObject["disciplina_id"] = data.desafioResolver["disciplina_id"];
-        this.desafioObject["invitado_id"] = data.desafioResolver["invitado_id"];
-        this.desafioObject["retador_id"] = data.desafioResolver["retador_id"];
+        this.desafioObject["id"] = data.desafioResolver["desafio"]["id"];
+        this.desafioObject["disciplina_id"] = data.desafioResolver["disciplina"]["id"];
+        this.desafioObject["invitado_id"] = data.desafioResolver["invitado"]["id"];
+        this.desafioObject["retador_id"] = data.desafioResolver["retador"]["id"];
         //console.log(">>>", this.matriculaObject);
         this.newDesafioForm.patchValue({
-          'invitado_puntaje' : data.desafioResolver.invitado_puntaje,
-          'retador_puntaje' : data.desafioResolver.retador_puntaje,
-          'ganador' : data.desafioResolver.ganador,
-          'parent_id' : data.desafioResolver.parent_id,
-          'fecha' : data.desafioResolver.fecha,
-          'fase' : data.desafioResolver.fase
+          'invitado_puntaje' : data.desafioResolver.desafio.invitado_puntaje,
+          'retador_puntaje' : data.desafioResolver.desafio.retador_puntaje,
+          'fecha' : data.desafioResolver.desafio.fecha,
+          'fase' : data.desafioResolver.desafio.fase
           //     'id': res["object"]["id"],
           //     'nombre': res["object"]["nombre"],
           //     'participantes': res["object"]["participantes"],
@@ -232,15 +228,14 @@ onSubmit() {
         'retador_id': this.newDesafioForm.value.retador_id,
         'invitado_puntaje': this.newDesafioForm.value.invitado_puntaje,
         'retador_puntaje': this.newDesafioForm.value.retador_puntaje,
-        'ganador': this.newDesafioForm.value.ganador,
-        'parent_id': this.newDesafioForm.value.parent_id,
         'fecha': this.newDesafioForm.value.fecha,
         'fase': this.newDesafioForm.value.fase        
              
       })
       .subscribe((res)=>{
         if ( res['status'] ) {
-          
+          alert("Datos Actualizados");
+          this.router.navigate(["admin/desafio"])
         }
       }, (err) => {
 

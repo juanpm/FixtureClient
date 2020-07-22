@@ -31,8 +31,7 @@ export class DesafioService {
     return this.http.get(this.api + "api/auth/desafios/" + id, {});
   }
   post(disciplina_id:number, invitado_id:number, retador_id:number, 
-    invitado_puntaje:number, retador_puntaje:number, ganador:string, 
-    parent_id:number, fecha:Date, fase:string) {
+    invitado_puntaje:number, retador_puntaje:number, fecha:Date, fase:string) {
     return this.http.post(this.api + "api/auth/desafios", 
       this.getFormUrlEncoded({
         'disciplina_id': disciplina_id,
@@ -40,8 +39,6 @@ export class DesafioService {
         'retador_id': retador_id,
         'invitado_puntaje': invitado_puntaje,
         'retador_puntaje': retador_puntaje,
-        'ganador': ganador,
-        'parent_id': parent_id,
         'fecha': fecha,
         'fase': fase,
       }), {'headers': this.headers});

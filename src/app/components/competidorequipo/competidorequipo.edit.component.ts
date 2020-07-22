@@ -45,13 +45,34 @@ export class CompetidorequipoEditComponent implements OnInit {
       });      
       this.loadMatricula();
       this.loadEquipo();
+      this.id = parseInt(this.activatedRoute.
+        snapshot.paramMap.get("id"));
+
+      this.competidorequipoService.show(this.id)
+        .subscribe((res)=>{
+
+     //     //1 Sobre escribo
+     //   this.formEdit.setValue({
+     //     'id': res["object"]["id"],
+     //     'nombre': res["object"]["nombre"],
+     //     'participantes': res["object"]["participantes"],
+     //   });
+
+      }, (err)=>{
+       
+     //   //2
+
+      });
     }
+
+
+
 
     ngOnInit() {
       this.activatedRoute.data.subscribe((data) => {
-        this.competidorObject["id"] = data.competidorResolver["id"];
-        this.competidorObject["matricula_id"] = data.competidorResolver["matricula_id"];
-        this.competidorObject["equipo_id"] = data.competidorResolver["equipo_id"];
+        this.competidorObject["id"] = data.competidorResolver["competidorequipo"]["id"];
+        this.competidorObject["matricula_id"] = data.competidorResolver["matricula"]["id"];
+        this.competidorObject["equipo_id"] = data.competidorResolver["equipo"]["id"];
         //console.log(">>>", this.matriculaObject);
       });
     }
@@ -65,7 +86,7 @@ export class CompetidorequipoEditComponent implements OnInit {
   }
   selectMatricula(o:any) {
     this.matriculaObject.selected = true;
-    this.matriculaObject.text = o.persona.nombre;
+    this.matriculaObject.text = o.persona.nombrecompleto;
     this.newCompetidorForm.patchValue({
       "matricula_id": o.id
     });

@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   'selector': 'app-seccion-show',
   'templateUrl': './seccion.show.component.html',
-  styleUrls: ['./seccion.edit.component.css']
+  styleUrls: ['./seccion.show.component.css']
 })
 
 export class SeccionShowComponent{

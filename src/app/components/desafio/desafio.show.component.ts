@@ -32,15 +32,19 @@ export class DesafioShowComponent {
       this.desafioService.show(id)
         .subscribe((res) => {
           
-          this.desaf.id = res["object"]["id"];
-          this.desaf.disciplina_id = res["object"]["disciplina_id"];
-          this.desaf.invitado_id = res["object"]["invitado_id"];
-          this.desaf.retador_id = res["object"]["retador_id"];
-          this.desaf.invitado_puntaje = res["object"]["invitado_puntaje"];
-          this.desaf.retador_puntaje = res["object"]["retador_puntaje"];
-          this.desaf.ganador = res["object"]["ganador"];
-          this.desaf.parent_id = res["object"]["parent_id"];
-          this.desaf.fase = res["object"]["fase"];
+          this.desaf.id = res["object"]["desafio"]["id"];
+          this.desaf.disciplina_id = res["object"]["disciplina"]["id"];
+          this.desaf.disciplina_nombre = res["object"]["disciplina"]["nombre"];
+          this.desaf.invitado_id = res["object"]["invitado"]["id"];
+          this.desaf.invitado_nombre = res["object"]["invitado"]["nombre"];
+          this.desaf.retador_id = res["object"]["retador"]["id"];
+          this.desaf.retador_nombre = res["object"]["retador"]["nombre"];
+          this.desaf.invitado_puntaje = res["object"]["desafio"]["invitado_puntaje"];
+          this.desaf.retador_puntaje = res["object"]["desafio"]["retador_puntaje"];
+          //this.desaf.ganador = res["object"]["ganador"];
+          this.desaf.fecha = res["object"]["desafio"]["fecha"];
+          //this.desaf.parent_id = res["object"]["parent_id"];
+          this.desaf.fase = res["object"]["desafio"]["fase"];
         }, (err)=> {
 
       });

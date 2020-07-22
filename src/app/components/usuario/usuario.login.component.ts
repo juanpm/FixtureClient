@@ -6,7 +6,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   'selector': 'app-usuario-login',
-  'templateUrl': './usuario.login.component.html'
+  'templateUrl': './usuario.login.component.html',
+  'styleUrls': ['./usuario.login.component.css']
 })
 
 export class UsuarioLoginComponent {

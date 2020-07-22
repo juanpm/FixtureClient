@@ -17,14 +17,15 @@
               
             <button type="button" 
               (click)="unselectMatricula()"
-              class="btn btn-primary">Cambiar</button>
+              class="btn btn-info">Cambiar</button>
             </div>
             <div class="list-group" *ngIf="!matriculaObject.selected">
               <div class="list-group-item" 
-                *ngFor="let matricula of matriculas">{{ matricula.persona.nombre }}
-                <button class="btn btn-primary" 
+                *ngFor="let matricula of matriculas">
+                <button class="btn btn-success" 
                   (click)="selectMatricula(matricula)"  
                   type="button">Seleccionar</button>
+                {{ matricula.persona.nombrecompleto }} 
               </div>
             </div>            
           </div>
@@ -40,14 +41,15 @@
               
             <button type="button" 
               (click)="unselectEquipo()"
-              class="btn btn-primary">Cambiar</button>
+              class="btn btn-info">Cambiar</button>
             </div>
             <div class="list-group" *ngIf="!equipoObject.selected">
               <div class="list-group-item" 
-                *ngFor="let equipo of equipos">{{ equipo.nombre }}
-                <button class="btn btn-primary" 
+                *ngFor="let equipo of equipos">
+                <button class="btn btn-success" 
                   (click)="selectEquipo(equipo)"
                   type="button">Seleccionar</button>
+                {{ equipo.nombre }}
               </div>
             </div>            
           </div>
@@ -56,7 +58,7 @@
         <button type="submit" class="btn btn-primary mr-2">
           Actualizar
         </button>
-        <button type="button" class="btn btn-warning mr-2" [routerLink]="['/admin/competidorequipo']">
+        <button type="button" class="btn btn-warning mr-2" [routerLink]="['/admin/competidorequipo', this.id]">
           Cancelar
         </button>
         <button (click)="delete()" class="btn btn-danger" type="button">Eliminar</button>

@@ -1,12 +1,14 @@
 <div class="panel shadow mt-3" >
     <div class="header">
-      <h2 class="title"><i class="fas fa-volleyball-ball"></i> Nombre: {{ desaf.disciplina_id }}</h2>
+      <h2 class="title"><i class="fas fa-volleyball-ball"></i> Nombre: {{ desaf.disciplina_nombre }}</h2>
     </div>
     <div class="inside">
       <div class="list-group">
         <div class="list-group-item">
-          <h5>Participantes: </h5> {{ desaf.invitado_id }}
-          <h5>Olimpiada: </h5> {{ desaf.retador_id }}
+          <h5>Fase: </h5> {{ desaf.fase }}
+          <h5>Equipo Invitado: </h5> {{ desaf.invitado_nombre }}
+          <h5>Equipo Retadador: </h5> {{ desaf.retador_nombre }}
+          <h5>Fecha: </h5> {{ desaf.fecha }}
         </div>
       </div>
       <div class="form-row">
