@@ -4,7 +4,7 @@
 }
 
 .section-top {
-    background-color: #007bff;
+    background-color: #EA2331;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
@@ -12,7 +12,7 @@
     display: block;
     margin: 0px auto;
     padding-top: 24px;
-    width: 60%;
+    width: 80%;
 }
 
 .user {
@@ -54,7 +54,7 @@ a {
 }
 
 .main ul li a:hover{
-    background-color: #007bff;
+    background-color: black;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     color: #fff !important;
     text-decoration: none;

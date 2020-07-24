@@ -27,6 +27,9 @@ export class EquipoService {
   index() {
     return this.http.get(this.api + "api/auth/equipos", {});
   }
+  indexByDisciplina(id:number) {
+    return this.http.get(this.api + "api/auth/equipos/indexByDisciplina/" + id, {});
+  }  
   show(id:number) {
     return this.http.get(this.api + "api/auth/equipos/" + id, {});
   }

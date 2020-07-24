@@ -72,6 +72,9 @@ export class DesafioComponent implements OnInit {
     this.newDesafioForm.patchValue({
       "disciplina_id": o.id
     });
+    this.loadEquipo(o.id);
+    this.loadEquipor(o.id);    
+    
   }
   loadDisciplina() {
     this.disciplinaService.index()
@@ -101,8 +104,8 @@ selectEquipo(o:any) {
     "invitado_id": o.id
   });
 }
-loadEquipo() {
-  this.equipoService.index()
+loadEquipo(id:number) {
+  this.equipoService.indexByDisciplina(id)
   .subscribe((res) => {
     // Aqui el codigo cuando la peticion sea ok.
 
@@ -129,8 +132,8 @@ selectEquipor(o:any) {
     "retador_id": o.id
   });
 }
-loadEquipor() {
-  this.equipoService.index()
+loadEquipor(id:number) {
+  this.equipoService.indexByDisciplina(id)
   .subscribe((res) => {
     // Aqui el codigo cuando la peticion sea ok.
 
@@ -182,8 +185,7 @@ load() {
   } 
   new() {
     this.loadDisciplina();
-    this.loadEquipo();
-    this.loadEquipor();
+
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }

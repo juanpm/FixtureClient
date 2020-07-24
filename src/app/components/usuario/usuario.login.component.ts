@@ -49,7 +49,7 @@ export class UsuarioLoginComponent {
         //this.router.navigate(["/admin/olimpiada"]);
 
       }, (error: any) => {
-        console.log("Error");
+        alert("No se pudo Iniciar Sesion");
       });
   }
 }
